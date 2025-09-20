@@ -1,0 +1,88 @@
+body {
+    background: linear-gradient(45deg, #ff9ccf, #ffc0cb, #ffe4e1);
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    text-align: center;
+    padding: 50px;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+h1,h2 {
+    color: #ff1493;
+    text-shadow: 2px 2px 5px #fff;
+}
+
+.big-btn {
+    padding: 20px 40px;
+    font-size: 22px;
+    margin: 20px;
+    border: none;
+    border-radius: 15px;
+    background-color: #ff69b4;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.big-btn:hover {
+    transform: scale(1.2);
+    background-color: #ff1493;
+}
+
+.color-btn {
+    padding: 15px 30px;
+    margin: 15px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    background: #ff6eb4;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.color-btn:hover {
+    background: #ff1493;
+    transform: scale(1.1);
+}
+
+.letter-text {
+    font-size: 24px;
+    color: #ff1493;
+    margin-top: 20px;
+}
+
+/* Kalp animasyonu */
+.hearts {
+    position: fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    pointer-events:none;
+}
+
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: red;
+    transform: rotate(45deg);
+    animation: float 3s linear infinite;
+}
+
+.heart::before,
+.heart::after {
+    content:'';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: red;
+    border-radius: 50%;
+}
+
+.heart::before { top: -10px; left:0; }
+.heart::after { left:10px; top:0; }
+
+@keyframes float {
+    0% {transform: translateY(0) rotate(45deg);}
+    100% {transform: translateY(-100vh) rotate(45deg);}
+}
