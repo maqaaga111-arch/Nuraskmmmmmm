@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Nur Aşkım 💖</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1 id="title">💖 Nur Aşkım 💖</h1>
+    <button id="startBtn" class="big-btn">Hayatımın Anlamı</button>
+
+    <div id="step2" style="display:none;">
+        <button id="continueBtn" class="big-btn">Devam Et</button>
+    </div>
+
+    <div id="loveQuestion" style="display:none; position: relative;">
+        <h2>Beni seviyor musun?</h2>
+        <button id="yesBtn" class="color-btn">Evet</button>
+        <button id="noBtn" class="color-btn">Hayır</button>
+    </div>
+
+    <div id="finalMessage" style="display:none;">
+        <h1 id="loveText">Nur aşkım seni çok seviyorum 💖</h1>
+        <button id="letterBtn" class="big-btn">Mektuba Bas</button>
+    </div>
+
+    <div id="letter" style="display:none;">
+        <p class="letter-text">Hayatımın anlamı, gönlümün sultanı, iyiki varsın! Seni çok seviyorum, sen benim her şeyimsin 💌</p>
+        <div class="hearts"></div>
+    </div>
+</div>
+
+<script>
+const startBtn = document.getElementById('startBtn');
+const step2 = document.getElementById('step2');
+const continueBtn = document.getElementById('continueBtn');
+const loveQuestion = document.getElementById('loveQuestion');
+const yesBtn = document.getElementById('yesBtn');
+const noBtn = document.getElementById('noBtn');
+const finalMessage = document.getElementById('finalMessage');
+const loveText = document.getElementById('loveText');
+const letterBtn = document.getElementById('letterBtn');
+const letter = document.getElementById('letter');
+
+startBtn.onclick = () => {
+    startBtn.style.display = 'none';
+    step2.style.display = 'block';
+}
+
+continueBtn.onclick = () => {
+    step2.style.display = 'none';
+    loveQuestion.style.display = 'block';
+}
+
+noBtn.onmouseenter = () => {
+    const x = Math.random() * 70;
+    const y = Math.random() * 70;
+    noBtn.style.position = 'absolute';
+    noBtn.style.left = x + '%';
+    noBtn.style.top = y + '%';
+    noBtn.style.transform = 'scale(0.7)';
+}
+
+noBtn.onclick = () => {
+    noBtn.style.display = 'none';
+    loveQuestion.innerHTML += '<p>Yoksa sevmiyor musun? 😢</p>';
+}
+
+yesBtn.onclick = () => {
+    loveQuestion.style.display = 'none';
+    finalMessage.style.display = 'block';
+}
+
+letterBtn.onclick = () => {
+    finalMessage.style.display = 'none';
+    letter.style.display = 'block';
+    // animasyon için kalpler
+    for(let i=0;i<30;i++){
+        let heart = document.createElement('div');
+        heart.classList.add('heart');
+        heart.style.left = Math.random()*100 + 'vw';
+        document.querySelector('.hearts').appendChild(heart);
+    }
+}
+</script>
+</body>
+</html>
